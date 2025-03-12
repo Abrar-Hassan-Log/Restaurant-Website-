@@ -18,7 +18,10 @@ use App\Http\Controllers\userController;
 
 Route::get("/",[HomeController::class,"index"]);
 Route::get("/users",[userController::class,"user"]);
+Route::get("/user/{id}",[userController::class,"deleteUser"]);
 Route::get("/redirect",[HomeController::class,"redirect"]);
+Route::get("/food",[userController::class,"createFood"]);
+Route::post("/foodUpload",[userController::class,"upload"]);
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
