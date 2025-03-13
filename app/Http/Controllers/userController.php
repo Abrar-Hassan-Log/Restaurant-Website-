@@ -35,6 +35,7 @@ class userController extends Controller
                 'image'=>'upload/'.$imageName,
                 'description'=>$request->description
             ]);
-                }
+            return view("admin.food");
+        }
     }
 }
