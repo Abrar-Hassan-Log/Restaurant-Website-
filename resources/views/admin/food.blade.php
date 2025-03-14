@@ -114,25 +114,24 @@
                        <thead>
                            <tr>
                                <th>ID</th>
-                               <th>Name</th>
-                               <th>Email</th>
+                               <th>Title</th>
+                               <th>Price</th>
+                               <th>Image</th>
+                               <th>Desctiption</th>
                                <th>Action</th>
                            </tr>
                        </thead>
                        <tbody>
-                         
+                         @foreach($foodData as $food)
                            <tr>
-                               <td>2</td>
-                               <td>Ahmed Raza</td>
-                               <td>ahmed.raza@example.com</td>
-                               <td><a href="#" class="btn btn-danger btn-sm">Delete</a></td>
+                               <td>{{$food->id}}</td>
+                               <td>{{$food->title}}</td>
+                               <td>{{$food->price}}</td>
+                               <td><img src="uploads/{{$food->image}}" alt=""></td>
+                               <td>kasdjhadskas</td>
+                               <td><a href="{{url('/destroyfood',$food->id)}}" class="btn btn-danger btn-sm">Delete</a></td>
                            </tr>
-                           <tr>
-                               <td>3</td>
-                               <td>Sara Sheikh</td>
-                               <td>sara.sheikh@example.com</td>
-                               <td><a href="#" class="btn btn-danger btn-sm">Delete</a></td>
-                           </tr>
+                          @endforeach
                        </tbody>
                    </table>
                </div>

@@ -20,8 +20,10 @@ Route::get("/",[HomeController::class,"index"]);
 Route::get("/users",[userController::class,"user"]);
 Route::get("/user/{id}",[userController::class,"deleteUser"]);
 Route::get("/redirect",[HomeController::class,"redirect"]);
-Route::get("/food",[userController::class,"createFood"]);
+Route::get("/food", [userController::class, "createFood"])->name('food');
 Route::post("/foodUpload",[userController::class,"upload"]);
+Route::get("/destroyfood/{id}",[userController::class,"deleteFood"]);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

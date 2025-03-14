@@ -20,7 +20,8 @@ class userController extends Controller
     }
     public function createFood()
     {
-        return view("admin.food");
+        $foodData = Food::all();
+        return view("admin.food",compact('foodData'));
     }
     public function upload(Request $request)
     {
@@ -32,10 +33,26 @@ class userController extends Controller
             Food::create([
                 'title'=>$request->title,
                 'price'=>$request->price,
-                'image'=>'upload/'.$imageName,
+                'image'=>$imageName,
                 'description'=>$request->description
             ]);
-            return view("admin.food");
+            $foodData = Food::all();
+            return view("admin.food",compact('foodData'));
         }
     }
+    public function deleteFood($id)
+{
+    $itemfind = Food::find($id);
+
+    if (!$itemfind) {
+        return redirect()->back()->with('error', 'Food item not found.');
+    }
+
+    $itemfind->delete();
+
+    return redirect()->route('food')->with('success', 'Food item deleted successfully.');
+
+}
+
+    
 }
