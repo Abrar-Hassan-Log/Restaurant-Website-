@@ -23,7 +23,8 @@ Route::get("/redirect",[HomeController::class,"redirect"]);
 Route::get("/food", [userController::class, "createFood"])->name('food');
 Route::post("/foodUpload",[userController::class,"upload"]);
 Route::get("/destroyfood/{id}",[userController::class,"deleteFood"]);
-
+Route::get("/updateView/{id}",[userController::class,'viewupdate']);
+Route::post('/editfood/{id}',[userController::class,'updatefood']);
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

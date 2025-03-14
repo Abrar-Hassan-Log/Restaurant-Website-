@@ -53,6 +53,28 @@ class userController extends Controller
     return redirect()->route('food')->with('success', 'Food item deleted successfully.');
 
 }
+public function viewupdate($id)
+{
+    $fooddata = Food::find($id);
+    return view('admin.edit',compact('fooddata'));
+}
+public function updatefood(Request $request, $id)
+{
 
+    if($request->hasFile('image'))
+        {
+            $fooditem = Food::find($id);
+            $image = $request->file('image');
+            $imageName = time().'.'.$image->getClientOriginalExtension();
+            $image->move(public_path('uploads'),$imageName);
+            $fooditem->title=$request->title;
+            $fooditem->price=$request->price;
+            $fooditem->image=$imageName;
+            $fooditem->description=$request->description;
+            $fooditem->save();
+            
+            return redirect()->route('food')->with('success','Successfully updated');
+        }
+}
     
 }

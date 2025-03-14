@@ -65,7 +65,7 @@
     justify-content: space-between;
     align-items: flex-start;
     gap: 20px;
-    background: transparent !important; /* 👈 Black background ko remove karne ke liye */
+    background: transparent !important; /* Black background ko remove karne ke liye */
 }
   </style>
 
@@ -129,6 +129,7 @@
                                <td>{{$food->price}}</td>
                                <td><img src="uploads/{{$food->image}}" alt=""></td>
                                <td>kasdjhadskas</td>
+                               <td><a href="{{url('/updateView',$food->id)}}" class="btn btn-danger btn-sm">Update</a></td>
                                <td><a href="{{url('/destroyfood',$food->id)}}" class="btn btn-danger btn-sm">Delete</a></td>
                            </tr>
                           @endforeach
