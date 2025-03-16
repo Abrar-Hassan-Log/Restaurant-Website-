@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Food;
+use App\Models\Chefs;
 use Illuminate\Http\Request;
 
 class userController extends Controller
@@ -76,5 +77,28 @@ public function updatefood(Request $request, $id)
             return redirect()->route('food')->with('success','Successfully updated');
         }
 }
-    
+public function viewChef()
+{
+    return view('admin.chefsadmin');
+}
+// public function storechef(request $request)
+// {
+//     dd("khjkj");
+//     if($request->hasFile('image'))
+//     {
+//         $image = $request->file('image');
+//         $imageName = time().'.'.$image->getClientOriginalExtension();
+//         $image->move(public_path('chefsUpload'),$imageName);
+//         Chefs::create([
+//             'name'=>$request->name,
+//             'speciality'=>$request->speciality,
+//             'image'=>$imageName
+//         ]);
+//         return redirect()->route('storechef')->with('success','Chefs Store Successfully');
+//     }
+// }
+public function storechef(Request $request)
+{
+    return response()->json($request->all());
+}
 }
