@@ -81,24 +81,19 @@ public function viewChef()
 {
     return view('admin.chefsadmin');
 }
-// public function storechef(request $request)
-// {
-//     dd("khjkj");
-//     if($request->hasFile('image'))
-//     {
-//         $image = $request->file('image');
-//         $imageName = time().'.'.$image->getClientOriginalExtension();
-//         $image->move(public_path('chefsUpload'),$imageName);
-//         Chefs::create([
-//             'name'=>$request->name,
-//             'speciality'=>$request->speciality,
-//             'image'=>$imageName
-//         ]);
-//         return redirect()->route('storechef')->with('success','Chefs Store Successfully');
-//     }
-// }
-public function storechef(Request $request)
+public function storechef(request $request)
 {
-    return response()->json($request->all());
+    if($request->hasFile('image'))
+    {
+        $image = $request->file('image');
+        $imageName = time().'.'.$image->getClientOriginalExtension();
+        $image->move(public_path('chefsimages'),$imageName);
+        Chefs::create([
+            'name'=>$request->name,
+            'speciality'=>$request->speciality,
+            'image'=>$imageName
+        ]);
+        return redirect()->route('viewChef')->with('success','Chefs Store Successfully');
+    }
 }
 }

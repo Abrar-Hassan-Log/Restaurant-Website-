@@ -25,8 +25,9 @@ Route::post("/foodUpload",[userController::class,"upload"]);
 Route::get("/destroyfood/{id}",[userController::class,"deleteFood"]);
 Route::get("/updateView/{id}",[userController::class,'viewupdate']);
 Route::post('/editfood/{id}',[userController::class,'updatefood']);
-Route::get('/chefview',[userController::class,'viewChef']);
-Route::post('/chefsUpload', [UserController::class, 'storechef'])->name('storechef');
+Route::get('/chefview',[userController::class,'viewChef'])->name('viewChef');
+Route::post('/chefsUpload', [userController::class,'storechef']);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
