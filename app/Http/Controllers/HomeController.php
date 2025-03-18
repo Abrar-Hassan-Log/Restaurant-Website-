@@ -26,7 +26,8 @@ class HomeController extends Controller
         else
         {
             $food = Food::all();
-            return view('home',compact('food'));
+            $chefs = Chefs::all();
+            return view('home',compact('food','chefs'));
         }
     }
 }
