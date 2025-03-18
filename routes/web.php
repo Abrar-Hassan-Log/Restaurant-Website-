@@ -27,6 +27,11 @@ Route::get("/updateView/{id}",[userController::class,'viewupdate']);
 Route::post('/editfood/{id}',[userController::class,'updatefood']);
 Route::get('/chefview',[userController::class,'viewChef'])->name('viewChef');
 Route::post('/chefsUpload', [userController::class,'storechef']);
+Route::get('/updateChefs/{id}',[userController::class,'updateChefView'])->name('updateChefView');
+Route::post('/updateChefsdata/{id}',[userController::class,'updateChefsData']);
+Route::get('/deletechefs/{id}',[userController::class,'destroyChef']);
+
+
 
 Route::middleware([
     'auth:sanctum',

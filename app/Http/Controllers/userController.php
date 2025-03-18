@@ -79,7 +79,9 @@ public function updatefood(Request $request, $id)
 }
 public function viewChef()
 {
-    return view('admin.chefsadmin');
+    $chefs = Chefs::all();
+
+    return view('admin.chefsadmin',compact('chefs'));
 }
 public function storechef(request $request)
 {
@@ -95,5 +97,36 @@ public function storechef(request $request)
         ]);
         return redirect()->route('viewChef')->with('success','Chefs Store Successfully');
     }
+}
+//Chefs Delete data
+public function destroyChef($id)
+{
+    $dataChef = Chefs::find($id);
+    $dataChef->delete();
+    return redirect()->route('viewChef')->with('success', 'Deleted Successfully');
+}
+
+
+//update chef view
+public function updateChefView($id)
+{
+    $chefupdate = Chefs::find($id);
+    return view('admin.editchefs',compact('chefupdate'));
+}
+//Update chefs data
+public function updateChefsData(request $request,$id)
+{
+    if($request->hasFile('image'))
+        {
+            $chefsData = Chefs::find($id);
+            $image = $request->file('image');
+            $imageName = time().'.'.$image->getClientOriginalExtension();
+            $image->move(public_path('chefsimages'),$imageName);
+            $chefsData->name=$request->name;
+            $chefsData->speciality=$request->speciality;
+            $chefsData->image=$imageName;
+            $chefsData->save();
+        return redirect()->route('viewChef')->with('success','Successfully updated');        }
+
 }
 }
