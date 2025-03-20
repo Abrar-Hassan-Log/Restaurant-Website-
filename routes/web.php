@@ -31,6 +31,7 @@ Route::get('/updateChefs/{id}',[userController::class,'updateChefView'])->name('
 Route::post('/updateChefsdata/{id}',[userController::class,'updateChefsData']);
 Route::get('/deletechefs/{id}',[userController::class,'destroyChef']);
 
+Route::post('/addtoCart/{id}',[HomeController::class,'addToCart']);
 
 
 Route::middleware([

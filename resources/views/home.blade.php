@@ -82,7 +82,18 @@ https://templatemo.com/tm-558-klassy-cafe
                                 </ul>
                             </li>
                             <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
-                            <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li> 
+                            <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li>
+                            <li class="nav-item position-relative">
+                <a href="#" class="nav-link">
+                    <img src="https://cdn-icons-png.flaticon.com/512/107/107831.png" alt="Cart" width="30">
+                    @auth
+                    <span class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">{{$count}}</span>
+                    @endauth  
+                    @guest
+                    <span class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">0</span>
+                    @endguest                 
+                </a>
+            </li> 
                             <li>
                             @if (Route::has('login'))
                 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">

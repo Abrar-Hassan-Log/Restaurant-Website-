@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Food;
 use App\Models\Chefs;
+use App\Models\Cart;
 
 class HomeController extends Controller
 {
@@ -25,9 +26,31 @@ class HomeController extends Controller
         }
         else
         {
+            $userId = Auth::id();
+            $count = Cart::where('user_id',$userId)->count();
             $food = Food::all();
             $chefs = Chefs::all();
-            return view('home',compact('food','chefs'));
+
+            return view('home',compact('food','chefs','count'));
+        }
+    }
+    public function addToCart(request $request, $id)
+    {
+        if(Auth::id())
+        {
+            $userId = Auth::id();
+            $foodId = $id;
+            $qunantity = $request->quantity;
+            $cart = new Cart;
+            $cart->user_id = $userId;
+            $cart->food_id = $foodId;
+            $cart->quantity = $qunantity;
+            $cart->save();
+            return redirect()->back();
+        }
+        else
+        {
+            return redirect('login');
         }
     }
 }
