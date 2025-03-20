@@ -26,6 +26,7 @@ class HomeController extends Controller
         }
         else
         {
+
             $userId = Auth::id();
             $count = Cart::where('user_id',$userId)->count();
             $food = Food::all();
@@ -52,5 +53,12 @@ class HomeController extends Controller
         {
             return redirect('login');
         }
+    }
+
+    //show cart data
+    public function showCart(request $request, $id)
+    {
+        $data=Cart::where('user_id',$id)->join('food','Carts.food_id','=','food.id')->get();
+        return response()->json(['data' => $data]); 
     }
 }

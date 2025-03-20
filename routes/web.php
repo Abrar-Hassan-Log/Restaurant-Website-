@@ -32,6 +32,7 @@ Route::post('/updateChefsdata/{id}',[userController::class,'updateChefsData']);
 Route::get('/deletechefs/{id}',[userController::class,'destroyChef']);
 
 Route::post('/addtoCart/{id}',[HomeController::class,'addToCart']);
+Route::get('/cartshow/{id}', [HomeController::class, 'showCart']);
 
 
 Route::middleware([

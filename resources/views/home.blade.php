@@ -1,125 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
-
     <title>Klassy Cafe - Restaurant HTML Template</title>
-<!--
-    
-TemplateMo 558 Klassy Cafe
 
-https://templatemo.com/tm-558-klassy-cafe
-
--->
-    <!-- Additional CSS Files -->
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
-
     <link rel="stylesheet" href="assets/css/templatemo-klassy-cafe.css">
-
     <link rel="stylesheet" href="assets/css/owl-carousel.css">
-
     <link rel="stylesheet" href="assets/css/lightbox.css">
+</head>
 
-    </head>
-    
-    <body>
-    
-    <!-- ***** Preloader Start ***** -->
-    <div id="preloader">
-        <div class="jumper">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>  
-    <!-- ***** Preloader End ***** -->
-    
-    
-    <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
-                            <img src="assets/images/klassy-logo.png" align="klassy cafe html template">
-                        </a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
-                        <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="#about">About</a></li>
-                           	
-                        <!-- 
-                            <li class="submenu">
-                                <a href="javascript:;">Drop Down</a>
-                                <ul>
-                                    <li><a href="#">Drop Down Page 1</a></li>
-                                    <li><a href="#">Drop Down Page 2</a></li>
-                                    <li><a href="#">Drop Down Page 3</a></li>
-                                </ul>
-                            </li>
-                        -->
-                            <li class="scroll-to-section"><a href="#menu">Menu</a></li>
-                            <li class="scroll-to-section"><a href="#chefs">Chefs</a></li> 
-                            <li class="submenu">
-                                <a href="javascript:;">Features</a>
-                                <ul>
-                                    <li><a href="#">Features Page 1</a></li>
-                                    <li><a href="#">Features Page 2</a></li>
-                                    <li><a href="#">Features Page 3</a></li>
-                                    <li><a href="#">Features Page 4</a></li>
-                                </ul>
-                            </li>
-                            <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
-                            <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li>
-                            <li class="nav-item position-relative">
-                <a href="#" class="nav-link">
-                    <img src="https://cdn-icons-png.flaticon.com/512/107/107831.png" alt="Cart" width="30">
-                    @auth
-                    <span class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">{{$count}}</span>
-                    @endauth  
-                    @guest
-                    <span class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">0</span>
-                    @endguest                 
-                </a>
-            </li> 
-                            <li>
-                            @if (Route::has('login'))
-                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                    @auth
-                        <li><x-app-layout>
-    
-    </x-app-layout></li>
-                    @else
-                    <li><a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a></li>
+<body>
 
-                        @if (Route::has('register'))
-                            <li><a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a></li>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-                            </li>
-                        </ul>        
+<!-- ***** Header Area Start ***** -->
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/klassy-logo.png" align="klassy cafe html template">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                        <li class="scroll-to-section"><a href="#about">About</a></li>
+                        <li class="scroll-to-section"><a href="#menu">Menu</a></li>
+                        <li class="scroll-to-section"><a href="#chefs">Chefs</a></li> 
+                        <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li>
                         
-                        <!-- ***** Menu End ***** -->
-                    </nav>
-                </div>
+                        <!-- Cart Icon with Modal Trigger -->
+                        <li class="nav-item position-relative">
+                            <a href="{{url('cartshow')}}" class="nav-link" data-bs-toggle="modal" data-bs-target="#cartModal">
+                                <img src="https://cdn-icons-png.flaticon.com/512/107/107831.png" alt="Cart" width="30">
+                                @auth
+                                <span class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">{{$count}}</span>
+                                @endauth  
+                                @guest
+                                <span class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">0</span>
+                                @endguest                 
+                            </a>
+                        </li> 
+
+                        <!-- Authentication Links -->
+                        <li>
+                            @if (Route::has('login'))
+                            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+                                @auth
+                                    <li><x-app-layout></x-app-layout></li>
+                                @else
+                                    <li><a href="{{ route('login') }}">Log in</a></li>
+                                    @if (Route::has('register'))
+                                        <li><a href="{{ route('register') }}">Register</a></li>
+                                    @endif
+                                @endauth
+                            </div>
+                            @endif
+                        </li>
+                    </ul>        
+                    <!-- ***** Menu End ***** -->
+                </nav>
             </div>
         </div>
-    </header>
-    <!-- ***** Header Area End ***** -->
+    </div>
+</header>
+<!-- ***** Header Area End ***** -->
+
+<!-- Bootstrap Modal for Cart -->
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg"> <!-- Modal size increased -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cartModalLabel">Your Cart</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>#</th>
+                                <th>Item</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Product A</td>
+                                <td>2</td>
+                                <td>Rs. 500</td>
+                                <td>Rs. 1000</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Product B</td>
+                                <td>1</td>
+                                <td>Rs. 300</td>
+                                <td>Rs. 300</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Product C</td>
+                                <td>3</td>
+                                <td>Rs. 200</td>
+                                <td>Rs. 600</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
     <!-- ***** Main Banner Area Start ***** -->
     <div id="top">
@@ -620,6 +627,8 @@ https://templatemo.com/tm-558-klassy-cafe
 
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Bootstrap -->
     <script src="assets/js/popper.js"></script>

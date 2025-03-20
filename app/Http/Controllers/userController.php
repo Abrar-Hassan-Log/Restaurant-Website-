@@ -104,9 +104,7 @@ public function destroyChef($id)
     $dataChef = Chefs::find($id);
     $dataChef->delete();
     return redirect()->route('viewChef')->with('success', 'Deleted Successfully');
-}
-
-
+}   
 //update chef view
 public function updateChefView($id)
 {
