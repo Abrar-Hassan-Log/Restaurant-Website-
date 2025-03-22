@@ -38,15 +38,21 @@
                         
                         <!-- Cart Icon with Modal Trigger -->
                         <li class="nav-item position-relative">
-                            <a href="{{url('cartshow')}}" class="nav-link" data-bs-toggle="modal" data-bs-target="#cartModal">
-                                <img src="https://cdn-icons-png.flaticon.com/512/107/107831.png" alt="Cart" width="30">
-                                @auth
-                                <span class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">{{$count}}</span>
-                                @endauth  
-                                @guest
-                                <span class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">0</span>
-                                @endguest                 
-                            </a>
+    @auth
+        <a href="{{ url('cartshow', [Auth::user()->id]) }}" class="nav-link" >
+    @else
+        <a href="{{ url('login') }}" class="nav-link">
+    @endauth
+            <img src="https://cdn-icons-png.flaticon.com/512/107/107831.png" alt="Cart" width="30">
+            @auth
+                <span class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">{{$count}}</span>
+            @endauth  
+            @guest
+                <span class="badge bg-primary text-white position-absolute top-0 start-100 translate-middle rounded-pill">0</span>
+            @endguest                 
+        </a>
+</li>
+
                         </li> 
 
                         <!-- Authentication Links -->
@@ -72,60 +78,6 @@
     </div>
 </header>
 <!-- ***** Header Area End ***** -->
-
-<!-- Bootstrap Modal for Cart -->
-<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg"> <!-- Modal size increased -->
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="cartModalLabel">Your Cart</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="table-responsive">
-                    <table class="table table-striped table-bordered">
-                        <thead class="table-dark">
-                            <tr>
-                                <th>#</th>
-                                <th>Item</th>
-                                <th>Quantity</th>
-                                <th>Price</th>
-                                <th>Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Product A</td>
-                                <td>2</td>
-                                <td>Rs. 500</td>
-                                <td>Rs. 1000</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Product B</td>
-                                <td>1</td>
-                                <td>Rs. 300</td>
-                                <td>Rs. 300</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Product C</td>
-                                <td>3</td>
-                                <td>Rs. 200</td>
-                                <td>Rs. 600</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Proceed to Checkout</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 
     <!-- ***** Main Banner Area Start ***** -->
