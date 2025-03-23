@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Klassy Cafe - Restaurant</title>
+    <!-- Bootstrap JS (Required for Modal) -->
+<script src="assets/js/bootstrap.bundle.min.js"></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -33,7 +35,14 @@
                         <li><a href="#menu">Menu</a></li>
                         <li><a href="#chefs">Chefs</a></li>
                         <li><a href="#reservation">Contact</a></li>
+                        <li>
+<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal">
+<i class="fa fa-shopping-cart"></i>
+    Order Now
+</button>
 
+
+                        </li>
                         <!-- Cart -->
                         <li class="nav-item position-relative px-3">
                             @auth
@@ -64,6 +73,7 @@
                                 @endauth
                             @endif
                         </li>
+                        
                     </ul>        
                 </nav>
             </div>
@@ -72,6 +82,45 @@
 </header>
 <!-- ***** Header End ***** -->
 
+<!-- The Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Contact Form</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{{url('conformOder',Auth::user()->id)}}" method="POST">
+            @csrf
+          <!-- Name Field -->
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+          </div>
+
+          <!-- Email Field -->
+          <div class="mb-3">
+            <label for="number" class="form-label">Phone Number</label>
+            <input type="number" class="form-control" id="phonenumber" name="phone" placeholder="Enter your phone number">
+          </div>
+
+          <!-- Message Field -->
+          <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            <textarea class="form-control" id="address" name="address" rows="3" placeholder="Enter your address"></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary" >Order Confirm</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ***** Table Section ***** -->
 <div class="container mt-5">
     <h2 class="text-center mb-4">Our Team</h2>
@@ -79,23 +128,32 @@
         <table class="table table-bordered text-center align-middle shadow-lg rounded-3 table-hover">
             <thead class="table-dark">
                 <tr>
+                    <th>ID</th>
                     <th>Title</th>
                     <th>Price</th>
                     <th>Quantity</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody class="p-3">
                 @foreach($data as $datas)
                 <tr>
+                    <td>{{$datas->cart_id}}</td>  
                     <td>{{$datas->title}}</td>
                     <td>{{$datas->price}}</td>
                     <td>{{$datas->quantity}}</td>
+                    <td>
+                    <a href="{{url('remove',$datas->cart_id)}}" class="btn-danger btn-d btn-sm delete-btn">Delete</a>
+                    </td> 
                 </tr>
                 @endforeach
-        </tbody>
+            </tbody>
         </table>
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 </html>

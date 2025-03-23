@@ -16,7 +16,7 @@ use App\Http\Controllers\userController;
 */
 
 
-Route::get("/",[HomeController::class,"index"]);
+Route::get("/",[HomeController::class,"index"])->name('index');
 Route::get("/users",[userController::class,"user"]);
 Route::get("/user/{id}",[userController::class,"deleteUser"]);
 Route::get("/redirect",[HomeController::class,"redirect"]);
@@ -32,8 +32,10 @@ Route::post('/updateChefsdata/{id}',[userController::class,'updateChefsData']);
 Route::get('/deletechefs/{id}',[userController::class,'destroyChef']);
 
 Route::post('/addtoCart/{id}',[HomeController::class,'addToCart']);
-Route::get('/cartshow/{id}', [HomeController::class, 'showCart']);
+Route::get('/cartshow/{id}',[HomeController::class, 'showCart'])->name('showCart');
 
+Route::get('/remove/{id}',[HomeController::class, 'removeData'])->name('removeData');
+Route::post('/conformOder/{id}',[HomeController::class, 'confirmOrder']);
 
 Route::middleware([
     'auth:sanctum',

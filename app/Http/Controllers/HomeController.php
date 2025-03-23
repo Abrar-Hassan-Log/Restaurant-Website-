@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Food;
 use App\Models\Chefs;
 use App\Models\Cart;
+use App\Models\Order;
 
 class HomeController extends Controller
 {
@@ -71,7 +72,37 @@ class HomeController extends Controller
     {
         $this->cartdata();
         $count=$this->count;
-        $data = Cart::where('user_id', $id)->join('Food', 'carts.food_id', '=', 'Food.id')->get();
+        $data = Cart::where('carts.user_id', $id)
+        ->join('Food', 'carts.food_id', '=', 'Food.id')
+        ->select('carts.id AS cart_id', 'carts.*', 'Food.id AS food_id', 'Food.*')
+        ->get();
          return view("cartdata",compact('count','data'));
+    }
+    //Delete Records of Food
+    public function removeData($id)
+    {
+        $data =Cart::find($id);
+        $data->delete();
+        return redirect()->back();
+    }
+    public function confirmOrder(request $request,$id)
+    { 
+        $cartData = Cart::where('carts.user_id', $id)
+        ->join('Food', 'carts.food_id', '=', 'Food.id')
+        ->select('carts.id AS cart_id', 'carts.*', 'Food.id AS food_id', 'Food.*')
+        ->get();
+        foreach($cartData  as $data)
+        {
+            $usersData[] = [
+                    'foodname'=>$data->title,
+                    'price'=>$data->price,
+                    'quantity'=>$data->quantity,
+                    'name'=>$request->name,
+                    'phone'=>$request->phone,
+                    'address'=>$request->address
+            ];
+        }
+        Order::insert($usersData);
+        return redirect()->back();
     }
 }
