@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-klassy-cafe.css">
+    <link rel="stylesheet" href="assets/css/templatemo-Klassy-cafe.css">
     <link rel="stylesheet" href="assets/css/owl-carousel.css">
     <link rel="stylesheet" href="assets/css/lightbox.css">
 </head>
@@ -24,7 +24,7 @@
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="index.html" class="logo">
-                        <img src="assets/images/klassy-logo.png" align="klassy cafe html template">
+                        <img src="assets/images/Klassy-logo.png" align="Klassy cafe html template">
                     </a>
                     <!-- ***** Logo End ***** -->
 
@@ -39,19 +39,20 @@
                         <!-- Cart Icon with Modal Trigger -->
                         <li class="nav-item position-relative">
     @auth
-        <a href="{{ url('cartshow', [Auth::user()->id]) }}" class="nav-link" >
+        <a href="{{ url('cartshow', [Auth::user()->id]) }}" class="nav-link d-flex align-items-center position-relative">
     @else
-        <a href="{{ url('login') }}" class="nav-link">
+        <a href="{{ url('login') }}" class="nav-link d-flex align-items-center position-relative">
     @endauth
-            <img src="https://cdn-icons-png.flaticon.com/512/107/107831.png" alt="Cart" width="30">
+            <img src="https://cdn-icons-png.flaticon.com/512/107/107831.png" alt="Cart" width="30" class="me-1">
             @auth
-                <span class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">{{$count}}</span>
+                <span class="badge bg-primary text-white position-absolute top-0 start-100 translate-middle rounded-pill">{{$count}}</span>
             @endauth  
             @guest
                 <span class="badge bg-primary text-white position-absolute top-0 start-100 translate-middle rounded-pill">0</span>
             @endguest                 
         </a>
 </li>
+
 
                         </li> 
 
@@ -188,14 +189,14 @@
                                 <div class="phone">
                                     <i class="fa fa-phone"></i>
                                     <h4>Phone Numbers</h4>
-                                    <span><a href="#">080-090-0990</a><br><a href="#">080-090-0880</a></span>
+                                    <span><a href="#">+92303-12345678</a><br><a href="#">+92303-12345678</a></span>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="message">
                                     <i class="fa fa-envelope"></i>
                                     <h4>Emails</h4>
-                                    <span><a href="#">hello@company.com</a><br><a href="#">info@company.com</a></span>
+                                    <span><a href="#">Kalsy@jumbo.com</a><br><a href="#">info@.com</a></span>
                                 </div>
                             </div>
                         </div>
@@ -463,81 +464,82 @@
                                     </div>
                                 </article>  
                                 <article id='tabs-3'>
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="row">
-                                                <div class="left-list">
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-05.png" alt="">
-                                                            <h4>Eggs Omelette</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$14</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-03.png" alt="">
-                                                            <h4>Orange Juice</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$18</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-02.png" alt="">
-                                                            <h4>Fruit Salad</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$10</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="row">
-                                                <div class="right-list">
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-06.png" alt="">
-                                                            <h4>Fresh Chicken Salad</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$8.50</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-01.png" alt="">
-                                                            <h4>Dollma Pire</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$9</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-04.png" alt="">
-                                                            <h4>Omelette & Cheese</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$11</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </article>   
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="row">
+                <div class="left-list">
+                    <div class="col-lg-12">
+                        <div class="tab-item">
+                            <img src="assets/images/tab-item-05.png" alt="">
+                            <h4>Eggs Omelette</h4>
+                            <p>Fluffy eggs omelette served with crispy toast and fresh herbs.</p>
+                            <div class="price">
+                                <h6>$14</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="tab-item">
+                            <img src="assets/images/tab-item-03.png" alt="">
+                            <h4>Orange Juice</h4>
+                            <p>Freshly squeezed orange juice, packed with vitamins and flavor.</p>
+                            <div class="price">
+                                <h6>$18</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="tab-item">
+                            <img src="assets/images/tab-item-02.png" alt="">
+                            <h4>Fruit Salad</h4>
+                            <p>A refreshing mix of seasonal fruits topped with honey and mint.</p>
+                            <div class="price">
+                                <h6>$10</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="row">
+                <div class="right-list">
+                    <div class="col-lg-12">
+                        <div class="tab-item">
+                            <img src="assets/images/tab-item-06.png" alt="">
+                            <h4>Fresh Chicken Salad</h4>
+                            <p>Grilled chicken served on a bed of fresh greens with a light dressing.</p>
+                            <div class="price">
+                                <h6>$8.50</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="tab-item">
+                            <img src="assets/images/tab-item-01.png" alt="">
+                            <h4>Pumpkin Soup</h4>
+                            <p>Creamy pumpkin soup with a touch of spice, perfect for cozy meals.</p>
+                            <div class="price">
+                                <h6>$9</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="tab-item">
+                            <img src="assets/images/tab-item-04.png" alt="">
+                            <h4>Omelette & Cheese</h4>
+                            <p>Classic omelette stuffed with melted cheese and served with toast.</p>
+                            <div class="price">
+                                <h6>$11</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+
                             </section>
                         </div>
                     </div>

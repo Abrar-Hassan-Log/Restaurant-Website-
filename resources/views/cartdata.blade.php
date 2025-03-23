@@ -12,7 +12,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-klassy-cafe.css">
+    <link rel="stylesheet" href="assets/css/templatemo-Klassy-cafe.css">
     <link rel="stylesheet" href="assets/css/owl-carousel.css">
     <link rel="stylesheet" href="assets/css/lightbox.css">
 </head>
@@ -26,7 +26,7 @@
             <div class="col-12">
                 <nav class="main-nav d-flex justify-content-between align-items-center">
                     <a href="index.html" class="logo">
-                        <img src="assets/images/klassy-logo.png" alt="Klassy Cafe">
+                        <img src="assets/images/Klassy-logo.png" alt="Klassy Cafe">
                     </a>
 
                     <ul class="nav">

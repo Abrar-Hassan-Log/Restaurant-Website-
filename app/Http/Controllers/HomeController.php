@@ -43,7 +43,8 @@ class HomeController extends Controller
         {
             $food = Food::all();
             $chefs = Chefs::all();
-            $count=$this->cartdata();
+            $this->cartdata();
+            $count=$this->count;
             return view('home',compact('food','chefs','count'));
         }
     }

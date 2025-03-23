@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Food;
 use App\Models\Chefs;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class userController extends Controller
@@ -124,7 +125,12 @@ public function updateChefsData(request $request,$id)
             $chefsData->speciality=$request->speciality;
             $chefsData->image=$imageName;
             $chefsData->save();
-        return redirect()->route('viewChef')->with('success','Successfully updated');        }
-
+        return redirect()->route('viewChef')->with('success','Successfully updated');       
+     }
+}
+public function ordersView()
+{
+    $orders = Order::all();
+    return view('admin/order',compact('orders'));
 }
 }
