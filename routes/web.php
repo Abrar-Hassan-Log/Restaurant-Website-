@@ -41,6 +41,9 @@ Route::get('/orders',[userController::class,'ordersView']);
 
 Route::post('/reservation',[HomeController::class, 'reservationAdd']);
 
+
+Route::get('/reservationview',[userController::class,'viewReservation']);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

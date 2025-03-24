@@ -6,6 +6,7 @@ use App\Models\Food;
 use App\Models\Chefs;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use App\Models\Reservation;
 
 class userController extends Controller
 {
@@ -132,5 +133,10 @@ public function ordersView()
 {
     $orders = Order::all();
     return view('admin/order',compact('orders'));
+}
+public function viewReservation()
+{
+    $data = Reservation::all();
+    return view('admin.reservation',compact('data'));
 }
 }

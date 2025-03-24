@@ -1,5 +1,4 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
-
         <ul class="nav">
           <li class="nav-item nav-category">
             <span class="nav-link">Navigation</span>
@@ -28,6 +27,14 @@
               <span class="menu-title">Chef</span>
             </a>
           </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('reservationview')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-chart-bar"></i>
+              </span>
+              <span class="menu-title">Reservation</span>
+            </a>
+          </li> 
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('orders')}}">
               <span class="menu-icon">
