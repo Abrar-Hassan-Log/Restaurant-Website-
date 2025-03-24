@@ -7,6 +7,7 @@ use App\Models\Food;
 use App\Models\Chefs;
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\Reservation;
 
 class HomeController extends Controller
 {
@@ -106,4 +107,26 @@ class HomeController extends Controller
         Order::insert($usersData);
         return redirect()->back();
     }
+    //reservation
+    public function reservationAdd(request $request)
+    {
+        $name = $request->name;
+        $email = $request->email;
+        $phone = $request->phone;
+        $guests = $request->number_guests;
+        $date = $request->date;
+        $time = $request->time;
+        $message = $request->message;
+        $reservation = new Reservation;
+        $reservation->name = $name;
+        $reservation->email = $email;
+        $reservation->phone_no = $phone;
+        $reservation->guest_no = $guests;
+        $reservation->date = $date;
+        $reservation->time = $time;
+        $reservation->message = $message;
+        $reservation->save();
+        return redirect()->back();
+    }
+    
 }
